@@ -1,14 +1,16 @@
-const express = require('express')
+import express from 'express'
+import {
+  getBootcamps,
+  getBootcamp,
+  createBootcamp,
+  updateBootcamp,
+  deleteBootcamp,
+} from '../controllers/bootcamps'
+
 const router = express.Router()
 
-router.get('/', (req, res) => {})
+router.route('/').get(getBootcamps).post(createBootcamp)
 
-router.get('/:id', (req, res) => {})
+router.route('/:id').get(getBootcamp).put(updateBootcamp).delete(deleteBootcamp)
 
-router.post('/:id', (req, res) => {})
-
-router.put('/:id', (req, res) => {})
-
-router.delete('/:id', (req, res) => {})
-
-module.exports = router
+export default router
