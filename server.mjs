@@ -2,6 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import morgan from 'morgan'
 import colors from 'colors'
+import errorHandler from './middleware/error.mjs'
 import connectDB from './config/db.mjs'
 
 // Load env vars
@@ -21,6 +22,8 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
 
 // Mount routers
 app.use('/api/v1/bootcamps', bootcamps)
+
+app.use(errorHandler)
 
 const PORT = process.env.PORT || 5000
 
