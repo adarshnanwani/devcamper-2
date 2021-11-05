@@ -2,6 +2,7 @@ import ErrorResponse from '../utils/errorResponse.mjs'
 
 export default function errorHandler(err, eq, res, next) {
   let error = { ...err }
+  error.message = err.message
 
   // Log to console for dev
   console.log(err)

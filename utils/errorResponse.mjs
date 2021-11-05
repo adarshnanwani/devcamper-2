@@ -3,5 +3,6 @@ export default class ErrorResponse extends Error {
     super(message)
     // Create a custom property for this class
     this.statusCode = statusCode
+    this.message = message
   }
 }
